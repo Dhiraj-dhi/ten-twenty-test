@@ -1,13 +1,54 @@
-/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./src/**/*.{html,js,jsx,ts,tsx}",
+    './src/**/*.{js,jsx,ts,tsx}',
+    './public/index.html',
   ],
   theme: {
-    extend: {},
+    extend: {
+      animation: {
+        'fade-in': 'fadeIn 1s ease-out forwards',
+        'slide-in': 'slideIn 1s ease-out forwards',
+        'progress-clockwise': 'progressClockwise 10s linear forwards',
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0', transform: 'translateY(10px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        slideIn: {
+          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        progressClockwise: {
+          '0%': {
+            borderTopColor: 'white',
+            borderRightColor: 'transparent',
+            borderBottomColor: 'transparent',
+            borderLeftColor: 'transparent',
+            borderWidth: '4px',
+          },
+          '25%': {
+            borderRightColor: 'white',
+            borderWidth: '4px',
+          },
+          '50%': {
+            borderBottomColor: 'white',
+            borderWidth: '4px',
+          },
+          '75%': {
+            borderLeftColor: 'white',
+            borderWidth: '4px',
+          },
+          '100%': {
+            borderTopColor: 'white',
+            borderRightColor: 'white',
+            borderBottomColor: 'white',
+            borderLeftColor: 'white',
+            borderWidth: '4px',
+          },
+        },
+      },
+    },
   },
   plugins: [],
-  safelist: [
-    "w-full", "w-1/4", "w-7/12", "w-9/12", "border-2", "border-4", "border-black", "text-center", "p-4", "my-4", "mx-auto", "rounded-md", "text-red-600", "text-cyan-600", "bg-indigo-200", "bg-lime-200", "bg-fuchsia-200", "grid", "grid-cols-1", "sm:grid-cols-2", "gap-x-4"
-  ],
-}
+};
