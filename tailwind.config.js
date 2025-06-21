@@ -6,45 +6,45 @@ module.exports = {
   theme: {
     extend: {
       animation: {
-        'fade-in': 'fadeIn 1s ease-out forwards',
-        'slide-in': 'slideIn 1s ease-out forwards',
+        'hero-fade': 'heroFade 1s ease-out forwards',
+        'text-fade-up': 'textFadeUp 1s ease-out forwards',
         'progress-clockwise': 'progressClockwise 10s linear forwards',
+        'fade-in': 'fadeIn 2s ease-out forwards',
       },
       keyframes: {
         fadeIn: {
-          '0%': { opacity: '0', transform: 'translateY(10px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
+          '0%': { opacity: 0, transform: 'translateY(10px)' },
+          '100%': { opacity: 1, transform: 'translateY(0)' },
         },
-        slideIn: {
-          '0%': { opacity: '0', transform: 'translateY(20px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
+        heroFade: {
+          '0%': { opacity: 0, transform: 'scale(1.02)' },
+          '100%': { opacity: 1, transform: 'scale(1)' },
+        },
+        textFadeUp: {
+          '0%': { opacity: 0, transform: 'translateY(40px)' },
+          '100%': { opacity: 1, transform: 'translateY(0)' },
         },
         progressClockwise: {
           '0%': {
+            borderColor: 'transparent',
             borderTopColor: 'white',
-            borderRightColor: 'transparent',
-            borderBottomColor: 'transparent',
-            borderLeftColor: 'transparent',
             borderWidth: '4px',
-          },
-          '25%': {
-            borderRightColor: 'white',
-            borderWidth: '4px',
+            transform: 'scale(0.95)',
           },
           '50%': {
             borderBottomColor: 'white',
             borderWidth: '4px',
+            transform: 'scale(1)',
           },
           '75%': {
             borderLeftColor: 'white',
             borderWidth: '4px',
+            transform: 'scale(1.02)',
           },
           '100%': {
-            borderTopColor: 'white',
-            borderRightColor: 'white',
-            borderBottomColor: 'white',
-            borderLeftColor: 'white',
+            borderColor: 'white',
             borderWidth: '4px',
+            transform: 'scale(1.05)',
           },
         },
       },
